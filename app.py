@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify, render_template
-import os
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
@@ -11,7 +10,7 @@ def calculate(expression):
         return result
     except Exception as e:
          # 如果計算中出現錯誤，則返回錯誤信息
-        return str(e)
+        return str("錯誤")
 
 # 根路徑返回 HTML 文件
 @app.route('/')
