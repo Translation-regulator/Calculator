@@ -10,7 +10,7 @@ def calculate(expression):
         return result
     except Exception as e:
          # 如果計算中出現錯誤，則返回錯誤信息
-        return str("錯誤")
+        return str("")
 
 # 根路徑返回 HTML 文件
 @app.route('/')
