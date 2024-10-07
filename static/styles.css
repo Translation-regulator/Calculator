@@ -16,11 +16,12 @@ body {
 
 input {
     width: 97%;
-    font-size: 30px;
+    font-size: 35px;
     text-align: right;
     margin-bottom: 20px;
     height: 80px; /* 高度增加一倍 */
 }
+
 
 .buttons {
     display: grid;
