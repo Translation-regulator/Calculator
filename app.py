@@ -1,17 +1,17 @@
 from flask import Flask, request, jsonify, render_template
-import os
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
 # 定義計算邏輯
 def calculate(expression):
     try:
+        expression = expression.replace('%', '/100')
         # 使用 eval 函數計算數學公式
         result = eval(expression)
         return result
     except Exception as e:
          # 如果計算中出現錯誤，則返回錯誤信息
-        return str(e)
+        return str("")
 
 # 根路徑返回 HTML 文件
 @app.route('/')

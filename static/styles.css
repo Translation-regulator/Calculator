@@ -15,11 +15,11 @@ body {
 }
 
 input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1.5em;
+    width: 97%;
+    font-size: 30px;
     text-align: right;
     margin-bottom: 20px;
+    height: 80px; /* 高度增加一倍 */
 }
 
 .buttons {
@@ -30,11 +30,13 @@ input {
 
 button {
     padding: 20px;
-    font-size: 1.5em;
+    font-size: 30px;
     border: none;
     border-radius: 5px;
     background-color: #ddd;
     cursor: pointer;
+    width: 100px;  /* 寬度為100px */
+    height: 100px; /* 高度為100px，變成正方形 */
 }
 
 button:hover {
