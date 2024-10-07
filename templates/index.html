@@ -12,28 +12,28 @@
         <input type="text" id="expression" disabled>
         <!-- 計算機的按鈕 -->
         <div class="buttons">
-            <button onclick="appendToExpression('1')">1</button>
-            <button onclick="appendToExpression('2')">2</button>
-            <button onclick="appendToExpression('3')">3</button>
-            <button onclick="appendToExpression('+')">+</button>
-            <button onclick="appendToExpression('7')">7</button>
-            <button onclick="appendToExpression('8')">8</button>
-            <button onclick="appendToExpression('9')">9</button>
-            <button onclick="appendToExpression('-')">-</button>
-            <button onclick="appendToExpression('4')">4</button>
-            <button onclick="appendToExpression('5')">5</button>
-            <button onclick="appendToExpression('6')">6</button>
-            <button onclick="appendToExpression('-')">-</button>
-            <button onclick="appendToExpression('7')">7</button>
-            <button onclick="appendToExpression('8')">8</button>
-            <button onclick="appendToExpression('9')">9</button>
-            <button onclick="appendToExpression('*')">*</button>
-            <button onclick="appendToExpression('0')">0</button>
-            <button onclick="appendToExpression('/')">/</button>
-            <button onclick="clearExpression()">C</button>
-            <button onclick="calculate()">=</button>
-        </div>
-        
+    <button onclick="clearExpression()">C</button>
+    <button onclick="calculateSquare()">x<sup>2</sup></button>
+    <button onclick="calculateSquareRoot()">√</button>
+    <button onclick="appendToExpression('+')">+</button>
+    <button onclick="appendToExpression('7')">7</button>
+    <button onclick="appendToExpression('8')">8</button>
+    <button onclick="appendToExpression('9')">9</button>
+    <button onclick="appendToExpression('-')">-</button>
+    <button onclick="appendToExpression('4')">4</button>
+    <button onclick="appendToExpression('5')">5</button>
+    <button onclick="appendToExpression('6')">6</button>
+    <button onclick="appendToExpression('*')">*</button>
+    <button onclick="appendToExpression('1')">1</button>
+    <button onclick="appendToExpression('2')">2</button>
+    <button onclick="appendToExpression('3')">3</button>
+    <button onclick="appendToExpression('/')">/</button>
+    <button onclick="appendToExpression('00')">00</button>
+    <button onclick="appendToExpression('0')">0</button>
+    <button onclick="calculatePercentage()">%</button>
+    <button onclick="calculate()">=</button>
+</div>
+
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
