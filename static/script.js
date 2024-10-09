@@ -11,10 +11,16 @@ function updateExpression(value) {
 function appendToExpression(value) {
     expression = String(expression);  // 確保 expression 是字符串
 
-    // 當 resetOnNextInput 為 true 且當前輸入的 value 不是運算符時，執行以下操作
-    if (resetOnNextInput && !isOperator(value)) {
-        expression = '';  // 清空表達式
-        resetOnNextInput = false;  // 重置標誌
+    // 如果计算已经结束，且输入的不是运算符，清空输入框并重置状态
+    if (calculationEnded) {
+        if (isOperator(value)) {
+            // 如果输入的是運算符號，繼續運算
+            calculationEnded = false;
+        } else {
+            // 如果输入的是数字，先清除
+            expression = '';
+            calculationEnded = false;  
+        }
     }
     
     // 防止在沒有輸入數字的情況下輸入運算符
