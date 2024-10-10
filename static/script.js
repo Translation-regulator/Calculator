@@ -110,7 +110,8 @@ document.addEventListener('keydown', function(event) {
     } 
     // 輸入 Enter，表示為 "="
     else if (key === 'Enter') {
-        event.preventDefault();  
+        event.preventDefault();
+        calculate();  
     }
     // 輸入 ESC，表示為清空輸入框
     else if (key === 'Escape') {
