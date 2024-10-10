@@ -47,29 +47,27 @@ button:hover {
 /* 手機板模式 */
 @media (max-width: 768px) {
     body {
-        flex-direction: column; /* 垂直排列，方便在小屏幕上居中 */
+        flex-direction: column;
         padding: 10px;
     }
 
     .calculator {
         padding: 15px;
-        width: 100%; /* 让计算器宽度自适应屏幕 */
-        box-sizing: border-box; /* 包括内边距在内计算宽度 */
+        width: 85vw; /* 在手机上让计算器更宽 */
     }
 
     input {
-        font-size: 25px; /* 减小输入框的字体大小 */
-        height: 60px; /* 减小输入框的高度 */
+        font-size: 8vw; /* 增大手机模式下的输入框字体 */
+        height: 12vw;
     }
 
     button {
-        padding: 15px;
-        font-size: 20px; /* 调整按钮字体大小 */
-        width: 80px; /* 减小按钮宽度 */
-        height: 80px; /* 减小按钮高度 */
+        font-size: 7vw; /* 调整按钮的字体大小 */
+        width: 17vw;  /* 增加按钮宽度 */
+        height: 17vw; /* 增加按钮高度 */
     }
 
     .buttons {
-        gap: 5px; /* 减小按钮之间的间距 */
+        gap: 3vw; /* 调整按钮间距 */
     }
 }
