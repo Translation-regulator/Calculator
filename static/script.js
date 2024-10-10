@@ -1,136 +1,108 @@
 let expression = '';
-let calculationEnded = false;  // 标记是否已经按下 "=" 或特殊运算
+let calculationEnded = false;  // 是否按下"="
 
-// 更新输入框显示
+// 顯示輸入的數字或是運算符號
 function updateExpression(value) {
     document.getElementById('expression').value = value;
 }
 
-// 添加数字或运算符到输入框
+// 增加數字或是運算符號到輸入框
 function appendToExpression(value) {
-    expression = String(expression);  // 确保 expression 是字符串
+    expression = String(expression);  // 確認 expression 是字串
 
-    // 如果计算已经结束，且输入的不是运算符，清空输入框并重置状态
+    // 如果計算結束且輸入非運算符號則清空輸入框
     if (calculationEnded) {
         if (isOperator(value)) {
-            // 如果输入的是运算符号，继续运算
             calculationEnded = false;
         } else {
-            // 如果输入的是数字，先清除
             expression = '';
             calculationEnded = false;  
         }
     }
     
-    // 防止在没有输入数字的情况下输入运算符
+    // 若沒有先輸入數字，不允許輸入運算符號
     if (expression === '' && isOperator(value)) {
-        return;  // 不允许输入运算符
+        return;  // 無法輸入運算符號
     }
 
-    // 防止连续输入多个运算符
+    // 避免連續輸入多個運算符號
     if (isOperator(expression.slice(-1)) && isOperator(value)) {
-        return;  // 不允许连续输入多个运算符
+        return;
     }
 
-    // 添加数字或运算符到表达式
+    // 新增數字或是運算符號
     expression += value;
     updateExpression(expression);
 }
 
-// 清除输入框
+// 清空輸入框
 function clearExpression() {
     expression = '';
     calculationEnded = false;
     updateExpression('');
 }
 
-// 统一处理计算和特殊操作（=、平方、平方根、百分比）
+// 統一處理計算和特殊操作（由後端處理）
 function calculate(operation = '=') {
-    expression = String(expression);  // 确保 expression 是字符串
-    let result;
-
-    try {
-        // 根据不同的操作符判断执行哪种运算
-        if (operation === '=') {
-            fetch('/calculate', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ expression: expression }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                updateExpression(data.result);  // 显示结果
-                expression = String(data.result);  // 更新当前表达式为结果
-                calculationEnded = true;  // 标记计算结束
-            })
-            .catch(error => console.error('Error:', error));
-        } else if (operation === '%') {
-            result = eval(expression) / 100;
-            updateExpression(result);
-            expression = result;
-            calculationEnded = true;
-        } else if (operation === 'square') {
-            result = Math.pow(eval(expression), 2);
-            updateExpression(result);
-            expression = result;
-            calculationEnded = true;
-        } else if (operation === 'sqrt') {
-            result = Math.sqrt(eval(expression));
-            updateExpression(result);
-            expression = result;
-            calculationEnded = true;
-        }
-    } catch (error) {
-        console.error('Calculation error:', error);
-        updateExpression('Error');
-        calculationEnded = true;
-    }
+    expression = String(expression);  // 確保 expression 是字符串
+    
+    fetch('/calculate', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ expression: expression, operation: operation }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        updateExpression(data.result);  // 顯示結果
+        expression = String(data.result);  // 更新當前表達式為結果
+        calculationEnded = true;  // 標記計算結束
+    })
+    .catch(error => console.error('Error:', error));
 }
 
-
-// 判断是否为运算符
+// 判斷是否為運算符
 function isOperator(value) {
     return ['+', '-', '*', '/'].includes(value);
 }
 
-// 使用键盘输入
+// 鍵盤事件處理
 document.addEventListener('keydown', function(event) {
-    const key = event.key;  // 获取按下的键
+    const key = event.key;  // 取得按下的鍵
 
-    // 判断是否为数字
+    // 判斷是否為數字
     if (!isNaN(key)) {
         appendToExpression(key);
-    } 
-    // 判断是否为运算符号
+    }
+    // 判斷是否為運算符號
     else if (['+', '-', '*', '/'].includes(key)) {
         appendToExpression(key);
-    } 
-    // 输入 Enter，表示为 "="
-    else if (key === 'Enter') {
-        event.preventDefault();
-        calculate('=');  
     }
-    // 输入 ESC，表示为清空输入框
+    // Enter 鍵相當於 "="
+    else if (key === 'Enter') {
+        event.preventDefault();  // 避免表單提交
+        calculate('=');
+    }
+    // ESC 鍵相當於清空
     else if (key === 'Escape') {
         clearExpression();
     }
-    // 输入退格键 backspace，表示为删除一个数字或运算符号
+    // Backspace 鍵相當於刪除一個字元
     else if (key === 'Backspace') {
-        expression = expression.slice(0, -1);  // 删除一个单位
+        expression = expression.slice(0, -1);  // 刪除最後一個字符
         updateExpression(expression);
     }
-    // 输入百分比 (%)
+    // % 鍵相當於百分比
     else if (key === '%') {
         calculate('%');
     }
-    // 输入平方 (x^2)
-    else if (key.toLowerCase() === 'p') {  // 用 "P" 键来表示平方
+    // P 鍵相當於平方
+    else if (key.toLowerCase() === 'p') {
         calculate('square');
     }
-    // 输入开根号 (√)
-    else if (key.toLowerCase() === 'r') {  // 用 "R" 键来表示平方根
+    // R 鍵相當於平方根
+    else if (key.toLowerCase() === 'r') {
         calculate('sqrt');
     }
 });
