@@ -95,3 +95,42 @@ function calculateSquareRoot() {
 function isOperator(value) {
     return ['+', '-', '*', '/'].includes(value);
 }
+
+// 使用鍵盤輸入
+document.addEventListener('keydown', function(event) {
+    const key = event.key;  // 定義鍵盤按下的按鍵
+
+    // 判斷是否為數字
+    if (!isNaN(key)) {
+        appendToExpression(key);
+    } 
+    // 判斷是否為運算符號
+    else if (['+', '-', '*', '/'].includes(key)) {
+        appendToExpression(key);
+    } 
+    // 輸入 Enter，表示為 "="
+    else if (key === 'Enter') {
+        event.preventDefault();  
+    }
+    // 輸入 ESC，表示為清空輸入框
+    else if (key === 'Escape') {
+        clearExpression();
+    }
+    // 輸入倒退鍵 backspace，表示為刪除一個數字或運算符號
+    else if (key === 'Backspace') {
+        expression = expression.slice(0, -1);  // 删除一個單位
+        updateExpression(expression);
+    }
+    // 輸入百分比 (%)
+    else if (key === '%') {
+        calculatePercentage();
+    }
+    // 輸入平方 (x^2)
+    else if (key.toLowerCase() === 'p') {  // 用 "P" 键来表示平方
+        calculateSquare();
+    }
+    // 輸入開根號 (√)
+    else if (key.toLowerCase() === 'r') {  // 用 "R" 键来表示平方根
+        calculateSquareRoot();
+    }
+});
