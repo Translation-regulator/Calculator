@@ -10,8 +10,8 @@ def calculate(expression, operation):
         expression = expression.replace('%', '/100')
 
         if operation == '=':
-            # 基本運算
-            result = eval(expression)
+            # 基本運算，將結果四捨五入至小數點後兩位
+            result = round(eval(expression), 2)
         elif operation == 'square':
             # 計算平方
             result = math.pow(eval(expression), 2)
