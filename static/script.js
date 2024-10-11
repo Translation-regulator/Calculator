@@ -64,7 +64,7 @@ function calculate(operation = '=') {
 
 // 判斷是否為運算符
 function isOperator(value) {
-    return ['+', '-', '*', '/'].includes(value);
+    return ['+', '-', '*', '/','.'].includes(value);
 }
 
 // 鍵盤事件處理
@@ -76,7 +76,7 @@ document.addEventListener('keydown', function(event) {
         appendToExpression(key);
     }
     // 判斷是否為運算符號
-    else if (['+', '-', '*', '/'].includes(key)) {
+    else if (['+', '-', '*', '/','.'].includes(key)) {
         appendToExpression(key);
     }
     // Enter 鍵相當於 "="
@@ -92,10 +92,6 @@ document.addEventListener('keydown', function(event) {
     else if (key === 'Backspace') {
         expression = expression.slice(0, -1);  // 刪除最後一個字符
         updateExpression(expression);
-    }
-    // % 鍵相當於百分比
-    else if (key === '%') {
-        calculate('%');
     }
     // P 鍵相當於平方
     else if (key.toLowerCase() === 'p') {
