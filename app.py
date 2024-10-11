@@ -12,9 +12,6 @@ def calculate(expression, operation):
         if operation == '=':
             # 基本運算
             result = eval(expression)
-        elif operation == '%':
-            # 計算百分比
-            result = eval(expression) / 100
         elif operation == 'square':
             # 計算平方
             result = math.pow(eval(expression), 2)
