@@ -42,6 +42,12 @@ def calculate_route():
     
     return jsonify({'result': result})
 
+@app.route('/help')
+def help_page():
+    return render_template('help.html')
+
 # 啟動 Flask 應用程序
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
+
+

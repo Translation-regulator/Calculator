@@ -44,6 +44,41 @@ button:hover {
     background-color: #bbb;
 }
 
+nav{
+    width:70px;
+    padding: 10px;
+    text-align: center;
+    background-color:rgb(170, 169, 168);
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'DFKai-sb';
+}
+
+.help-container {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'DFKai-sb';
+}
+
+.help-container h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.help-descript {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.help-container button {
+    font-size: 23px; /* 调整按钮的字体大小 */
+    width: 10vw;  /* 增加按钮宽度 */
+    height: 5vw; /* 增加按钮高度 */
+    margin-top: 20px;
+    padding: 10px 20px;
+
+}
+
 /* 手機板模式 */
 @media (max-width: 768px) {
     body {
@@ -70,4 +105,32 @@ button:hover {
     .buttons {
         gap: 3vw; /* 调整按钮间距 */
     }
+
+    .help-container {
+        margin-top: 30px;  /* 縮小頂部邊距 */
+        padding: 15px;  /* 增加內部間距 */
+    }
+
+    .help-container h1 {
+        font-size: 24px;  /* 減小標題字體大小 */
+        margin-bottom: 15px;
+    }
+
+    .help-container p, .help-container ul {
+        font-size: 16px;  /* 減小文字字體大小 */
+        margin-bottom: 15px;
+    }
+
+    .help-container ul {
+        padding-left: 20px;  /* 調整列表的縮進 */
+    }
+
+    .help-container button {
+        font-size: 13px; /* 调整按钮的字体大小 */
+        width: 30vw;  /* 增加按钮宽度 */
+        height: 10vw; /* 增加按钮高度 */
+
+    }
 }
+
+
