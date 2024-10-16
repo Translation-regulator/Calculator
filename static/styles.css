@@ -71,9 +71,9 @@ nav{
 }
 
 .help-container button {
-    font-size: 23px; /* 调整按钮的字体大小 */
-    width: 10vw;  /* 增加按钮宽度 */
-    height: 5vw; /* 增加按钮高度 */
+    font-size: 23px; /* 調整按鈕字體大小 */
+    width: 10vw;  /* 增加按紐宽度 */
+    height: 5vw; /* 增加按紐高度 */
     margin-top: 20px;
     padding: 10px 20px;
 
@@ -88,11 +88,11 @@ nav{
 
     .calculator {
         padding: 15px;
-        width: 85vw; /* 在手机上让计算器更宽 */
+        width: 85vw; /* 在手機上讓計算機更寬 */
     }
 
     input {
-        font-size: 8vw; /* 增大手机模式下的输入框字体 */
+        font-size: 8vw; 
         height: 12vw;
     }
 
