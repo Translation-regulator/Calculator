@@ -36,8 +36,8 @@ button {
     border-radius: 5px;
     background-color: #ddd;
     cursor: pointer;
-    width: 100px;  /* 寬度為100px */
-    height: 100px; /* 高度為100px，變成正方形 */
+    width: 95px;  /* 寬度為100px */
+    height: 95px; /* 高度為100px，變成正方形 */
 }
 
 button:hover {
@@ -72,7 +72,7 @@ nav{
 
 .help-container button {
     font-size: 23px; /* 調整按鈕字體大小 */
-    width: 10vw;  /* 增加按紐宽度 */
+    width: 15vw;  /* 增加按紐宽度 */
     height: 5vw; /* 增加按紐高度 */
     margin-top: 20px;
     padding: 10px 20px;
@@ -122,12 +122,12 @@ nav{
     }
 
     .help-container ul {
-        padding-left: 20px;  
+        padding-left: 20px;  /* 調整列表的縮進 */
     }
 
     .help-container button {
-        font-size: 13px; /* 調整按鈕字體大小 */
-        width: 30vw;  /* 增加按鈕寬度 */
+        font-size: 13px; /* 調整按鈕的字體大小 */
+        width: 30vw;  /* 增加按鈕宽度 */
         height: 10vw; /* 增加按鈕高度 */
 
     }
