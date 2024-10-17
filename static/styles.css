@@ -97,13 +97,13 @@ nav{
     }
 
     button {
-        font-size: 7vw; /* 调整按钮的字体大小 */
-        width: 17vw;  /* 增加按钮宽度 */
-        height: 17vw; /* 增加按钮高度 */
+        font-size: 7vw; /* 調整按鈕字體大小 */
+        width: 17vw;  /* 增加按鈕寬度 */
+        height: 17vw; /* 增加按鈕高度 */
     }
 
     .buttons {
-        gap: 3vw; /* 调整按钮间距 */
+        gap: 3vw; /* 調整按鈕间距 */
     }
 
     .help-container {
@@ -122,13 +122,13 @@ nav{
     }
 
     .help-container ul {
-        padding-left: 20px;  /* 調整列表的縮進 */
+        padding-left: 20px;  
     }
 
     .help-container button {
-        font-size: 13px; /* 调整按钮的字体大小 */
-        width: 30vw;  /* 增加按钮宽度 */
-        height: 10vw; /* 增加按钮高度 */
+        font-size: 13px; /* 調整按鈕字體大小 */
+        width: 30vw;  /* 增加按鈕寬度 */
+        height: 10vw; /* 增加按鈕高度 */
 
     }
 }
