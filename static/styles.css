@@ -71,7 +71,7 @@ nav{
 }
 
 .help-container button {
-    font-size: 23px; /* 調整按鈕字體大小 */
+    font-size:larger; /* 調整按鈕字體大小 */
     width: 15vw;  /* 增加按紐宽度 */
     height: 5vw; /* 增加按紐高度 */
     margin-top: 20px;
@@ -126,8 +126,8 @@ nav{
     }
 
     .help-container button {
-        font-size: 13px; /* 調整按鈕的字體大小 */
-        width: 30vw;  /* 增加按鈕宽度 */
+        font-size: 15%; /* 調整按鈕的字體大小 */
+        width: 40vw;  /* 增加按鈕宽度 */
         height: 10vw; /* 增加按鈕高度 */
 
     }
