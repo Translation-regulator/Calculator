@@ -84,17 +84,19 @@ nav{
     body {
         flex-direction: column;
         padding: 10px;
+
     }
 
     .calculator {
         padding: 15px;
-        width: 85vw; /* 在手機上讓計算機更寬 */
+        width: 80vw; /* 在手機上讓計算機更寬 */
     }
 
     input {
         font-size: 8vw; 
         height: 12vw;
         width: 80vw;
+        box-sizing:border-box;
     }
 
     button {
